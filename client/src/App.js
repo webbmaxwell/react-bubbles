@@ -10,11 +10,11 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Route exact path="/" component={Login} />
+        <Route exact path="/login" component={Login} />
         <PrivateRoute path="/protected" component={BubblePage} />
         <ul>
           <li>
-            <Link to="/">Login</Link>
+            <Link to="/login">Login</Link>
           </li>
           <li>
             <Link to="/protected">Bubbles</Link>
