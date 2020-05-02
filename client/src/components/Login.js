@@ -41,6 +41,7 @@ class Login extends React.Component {
       <>
         <h1>Welcome to the Bubble App!</h1>
         <form onSubmit={this.login}>
+          <p>{"Lambda School"}</p>
           <input
             type="text"
             name="username"
@@ -48,6 +49,7 @@ class Login extends React.Component {
             onChange={this.handleChange}
             placeholder="username"
           />
+          <p>{"i<3Lambd4"}</p>
           <input
             type="password"
             name="password"
