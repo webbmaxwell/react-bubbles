@@ -26,8 +26,8 @@ const ColorList = ({ colors, updateColors }) => {
     axiosWithAuth()
       .put(`http://localhost:5000/api/colors/${colorToEdit.id}`, colorToEdit)
       .then(res => {
-        console.log(res)
-        setColorToEdit(res.color)
+        console.log(res.data)
+        setColorToEdit(res.data)
       })
       .catch(err => console.error(err))
   };
@@ -37,7 +37,7 @@ const ColorList = ({ colors, updateColors }) => {
     axiosWithAuth()
       .delete(`http://localhost:5000/api/colors/${colorToEdit.id}`, colorToEdit)
       .then(res => {
-        console.log(res)
+        console.log(res.data)
 
       })
   };
@@ -80,6 +80,7 @@ const ColorList = ({ colors, updateColors }) => {
           <label>
             hex code:
             <input
+              type="text"
               onChange={e =>
                 setColorToEdit({
                   ...colorToEdit,
