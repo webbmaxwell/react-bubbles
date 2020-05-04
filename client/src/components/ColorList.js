@@ -48,7 +48,7 @@ const ColorList = ({ colors, updateColors }) => {
   const addColor = e => {
     e.preventDefault();
     axiosWithAuth()
-      .post("http://localhost:5000/api/colors")
+      .post("http://localhost:5000/api/colors/", newColor)
       .then(res => {
         console.log(res.data);
         setNewColor(res.data);
@@ -116,7 +116,10 @@ const ColorList = ({ colors, updateColors }) => {
             color name:
             <input
               onChange={e =>
-                setColorToEdit({ ...colorToEdit, color: e.target.value })
+                setColorToEdit({
+                  ...colorToEdit,
+                  color: e.target.value
+                })
               }
               value={colorToEdit.color}
             />
