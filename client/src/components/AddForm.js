@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-import { initialColor } from "./ColorList";
+
+const blankColor = {
+  color: "",
+  code: { hex: "#" }
+}
 
 const AddForm = () => {
 
-  const [newColor, setNewColor] = useState(initialColor);
+  const [newColor, setNewColor] = useState(blankColor);
 
   const addColor = () => {
     axiosWithAuth()
@@ -40,8 +44,15 @@ const AddForm = () => {
                 code: { hex: e.target.value }
               })
             }
+            value={newColor.code.hex}
           />
         </label>
+        <div className="button-row">
+          <button type="submit">add</button>
+        </div>
+      </form>
     </div>
-  )
-}
+  );
+};
+
+export default AddForm;

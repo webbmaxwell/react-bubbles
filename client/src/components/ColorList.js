@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import AddForm from "./AddForm";
+
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
-const initialColor = {
+export const initialColor = {
   color: "",
   code: { hex: "" }
 };
@@ -65,6 +67,7 @@ const ColorList = ({ colors, updateColors }) => {
           </li>
         ))}
       </ul>
+      <AddForm />
       {editing && (
         <form onSubmit={saveEdit}>
           <legend>edit color</legend>
