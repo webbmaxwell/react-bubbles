@@ -4,18 +4,20 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const blankColor = {
   color: "",
-  code: { hex: "#" }
+  code: { hex: "" }
 }
 
 const AddForm = () => {
 
   const [newColor, setNewColor] = useState(blankColor);
 
-  const addColor = () => {
+  const addColor = e => {
+    e.preventDefault();
     axiosWithAuth()
       .post("http://localhost:5000/api/colors")
       .then(res => {
-        console.log(res.data)
+        console.log(res.data);
+        setNewColor(res.data);
 
       })
   }
